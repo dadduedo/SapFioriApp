@@ -55,6 +55,8 @@ modules:
             - fiori-content.zip
           name: fiori
           target-path: resources/
+      commands:
+        - npm install
   - name: fiori
     type: html5
     path: app/fiori
