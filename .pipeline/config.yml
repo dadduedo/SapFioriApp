@@ -18,14 +18,14 @@ general:
 steps:
   artifactPrepareVersion:
     versioningType: cloud_noTag
-
+  mtaBuild:    
+    buildTarget: 'CF'
 ### Stage-specific configuration
 stages:
   'Confirm':
     manualConfirmation: false
 
-  'Central Build':
-    buildExecute : true
+
 #  Integration:
 #    credentials:
 #      - alias: 'mySystemAlias'

@@ -10,3 +10,10 @@
 @Library('piper-lib-os') _
 
 piperPipeline script: this
+
+stage(‘build’){
+    steps{
+        mtaBuild script: this,
+        mtaBuildTool: 'cloudMbt'               
+    }
+}
