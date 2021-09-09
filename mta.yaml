@@ -126,3 +126,5 @@ resources:
       service: xsuaa
       service-name: fiori-xsuaa-service
       service-plan: application
+
+
