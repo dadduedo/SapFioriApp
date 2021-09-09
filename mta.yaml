@@ -49,12 +49,8 @@ modules:
         parameters:
           content-target: true
     build-parameters:
-      build-result: resources
-      requires:
-        - artifacts:
-            - fiori-content.zip
-          name: fiori
-          target-path: resources/
+      before-all:
+        - builder: custom
       commands:
         - npm install
   - name: fiori
