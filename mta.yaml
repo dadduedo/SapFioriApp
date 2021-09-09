@@ -52,16 +52,11 @@ modules:
       before-all:
         - builder: custom
       commands:
-        - npm install
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --production
   - name: fiori
     type: html5
     path: app/fiori
-    build-parameters:
-      build-result: dist
-      builder: custom
-      commands:
-      - npm install
-      - npm run build:cf
     requires:
       - name: fiori_ui_deployer
   - name: cap-launchpad-srv
