@@ -57,10 +57,11 @@ modules:
     type: html5
     path: app/fiori
     build-parameters:
+      build-result: dist
       builder: custom
       commands:
-        - npm run build
-      supported-platforms: []
+      - npm install
+      - npm run build:cf
     requires:
       - name: fiori_ui_deployer
   - name: cap-launchpad-srv
