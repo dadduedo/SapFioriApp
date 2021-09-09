@@ -16,9 +16,6 @@ general:
 
 ### Step-specific configuration
 steps:
-  mavenExecute:
-    dockerImage: devxci/mbtci:1.0.14
-
   artifactPrepareVersion:
     versioningType: cloud_noTag
 
@@ -27,6 +24,8 @@ stages:
   'Confirm':
     manualConfirmation: false
 
+  'Central Build':
+    buildExecute : true
 #  Integration:
 #    credentials:
 #      - alias: 'mySystemAlias'
