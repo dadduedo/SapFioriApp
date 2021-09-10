@@ -25,7 +25,12 @@ stages:
   'Confirm':
     manualConfirmation: false
 
-
+cloudFoundryDeploy:
+    cloudFoundry:
+      credentialsId: 'cfdeploy'
+      apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
+      org: 'dcafb7e5trial'
+      space: 'prova'
 #  Integration:
 #    credentials:
 #      - alias: 'mySystemAlias'
@@ -39,3 +44,7 @@ stages:
 #        appName: 'myAppName'
 #        manifest: 'manifest.yml'
 #        credentialsId: 'myDeploymentCredentialsId'
+
+
+
+
