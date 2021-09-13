@@ -16,7 +16,8 @@
         "sqlite3": "^5.0.2"
     },
     "scripts": {
-        "start": "cds run"
+        "start": "cds run",
+        "prova": "node script1.js"
     },
     "eslintConfig": {
         "extends": "eslint:recommended",
