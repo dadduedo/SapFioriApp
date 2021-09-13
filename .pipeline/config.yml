@@ -25,17 +25,23 @@ steps:
 ### Stage-specific configuration
 stages:
   Build:
-    npmExecuteLint: true                  # true, if you want to run a lint check that verifies the syntax of your JavaScript code (default: false)
-    
-Release:
-    cloudFoundryDeploy: true   # true, if you want to deploy to Cloud Foundry (default: false)
-    
+    mavenExecuteStaticCodeChecks: true    # true, if you want to execute static code checks to verify the syntax of your Java code
+    npmExecuteLint: true                  # true, if you want to run a lint check that verifies the syntax of your JavaScript code
+
+  'Additional Unit Tests':
+     npmExecuteScripts: true   # true, if you want to execute test scripts that are defined in step npmExecuteScripts
+
+  Release:
+    cloudFoundryDeploy: true   # true, if you want to deploy to Cloud Foundry. If you set this parameter to true, the CloudFoundryDeploy step is mandatory
+    tmsUpload: true            # true if you want to upload your artifact to SAP Cloud Transport Management. If you set this parameter to true, the tmsUpload step is mandatory
+
 cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'cfdeploy'
       apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
       org: 'dcafb7e5trial'
       space: 'prova'
+
 
 
     # tmsUpload: true            # true, if you want to upload your artifact to SAP Cloud Transport Management
