@@ -42,7 +42,8 @@ cloudFoundryDeploy:
       org: 'dcafb7e5trial'
       space: 'prova'
 
-
+npmExecuteScripts:    # only relevant, if you set the npmExecuteScripts parameter in the Additional Unit Tests stage to true
+    runScripts: ['start']
 
     # tmsUpload: true            # true, if you want to upload your artifact to SAP Cloud Transport Management
 
