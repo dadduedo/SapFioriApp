@@ -27,7 +27,9 @@ stages:
   Build:
     npmExecuteLint: true                  # true, if you want to run a lint check that verifies the syntax of your JavaScript code (default: false)
     
-
+Release:
+    cloudFoundryDeploy: true   # true, if you want to deploy to Cloud Foundry (default: false)
+    
 cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'cfdeploy'
@@ -35,8 +37,7 @@ cloudFoundryDeploy:
       org: 'dcafb7e5trial'
       space: 'prova'
 
-Release:
-    cloudFoundryDeploy: true   # true, if you want to deploy to Cloud Foundry (default: false)
+
     # tmsUpload: true            # true, if you want to upload your artifact to SAP Cloud Transport Management
 
 #  Integration:
