@@ -7,3 +7,13 @@
  * More information on getting started with Continuous Delivery can be found here: https://sap.github.io/jenkins-library/
  */
 
+
+
+piperPipeline script: this
+
+stage(‘build’){
+    steps{
+        mtaBuild script: this,
+        mtaBuildTool: 'cloudMbt'               
+    }
+}
