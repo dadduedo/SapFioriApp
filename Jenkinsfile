@@ -8,12 +8,26 @@
  */
 
 
-
-piperPipeline script: this
-
-stage(‘build’){
-    steps{
-        mtaBuild script: this,
-        mtaBuildTool: 'cloudMbt'               
+pipeline { 
+    agent any 
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') { 
+            steps { 
+                bat 'npm -v' 
+            }
+        }
+        stage('Test'){
+            steps {
+                bat 'node vars/script.js'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                bat 'npm i'
+            }
+        }
     }
 }
