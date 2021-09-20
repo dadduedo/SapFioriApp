@@ -9,9 +9,8 @@
 
 
 pipeline { 
-    agent any 
-    options {
-        skipStagesAfterUnstable()
+    agent {
+        docker { image 'node:14-alpine' }
     }
     stages {
         stage('Build') { 
@@ -21,7 +20,12 @@ pipeline {
         }
         stage('Test'){
             steps {
-                bat 'node vars/script.js'
+                bat 'node vars/script1.js'
+            }
+        }
+        stage('TestDocker') {
+            steps {
+                sh 'node --version'
             }
         }
         stage('Deploy') {
@@ -31,3 +35,27 @@ pipeline {
         }
     }
 }
+
+// pipeline { 
+//     agent any 
+//     options {
+//         skipStagesAfterUnstable()
+//     }
+//     stages {
+//         stage('Build') { 
+//             steps { 
+//                 bat 'npm -v' 
+//             }
+//         }
+//         stage('Test'){
+//             steps {
+//                 bat 'node vars/script1.js'
+//             }
+//         }
+//         stage('Deploy') {
+//             steps {
+//                 bat 'npm i'
+//             }
+//         }
+//     }
+// }
