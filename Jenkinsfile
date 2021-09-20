@@ -25,7 +25,7 @@ pipeline {
         }
         stage('TestDocker') {
             steps {
-                sh 'node --version'
+                bat 'node --version'
             }
         }
         stage('Deploy') {
