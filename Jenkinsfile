@@ -6,31 +6,24 @@
  * A suitable Jenkins instance is required to run the pipeline.
  * More information on getting started with Continuous Delivery can be found here: https://sap.github.io/jenkins-library/
  */
-
-
 pipeline { 
     agent {
-        docker { image 'node:14-alpine' }
+        docker { 
+            image 'node:12.16.2'
+            args '-p 3000:3000' 
+        }
     }
     stages {
-        stage('Build') { 
-            steps { 
-                bat 'npm -v' 
-            }
-        }
-        stage('Test'){
-            steps {
-                bat 'node vars/script1.js'
-            }
-        }
-        stage('TestDocker') {
+        stage('Build') {
             steps {
                 bat 'node --version'
+                bat 'npm install'
+                bat 'npm run build'
             }
         }
-        stage('Deploy') {
+        stage ('Deliver') {
             steps {
-                bat 'npm i'
+                bat 'readlink -f ./package.json'
             }
         }
     }
