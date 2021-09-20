@@ -7,14 +7,20 @@
  * More information on getting started with Continuous Delivery can be found here: https://sap.github.io/jenkins-library/
  */
 pipeline { 
-    agent {
-        docker { 
-            image 'node:12.16.2'
-            args '-p 3000:3000' 
-        }
-    }
+    agent any
     stages {
+        stage('prova') { 
+            steps { 
+                bat 'npm -v' 
+            }
+        }
         stage('Build') {
+            agent {
+                docker { 
+                    image 'node:12.16.2'
+                    args '-p 3000:3000' 
+                }
+            }
             steps {
                 bat 'node --version'
                 bat 'npm install'
