@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker { 
-                    image 'docker/getting-started'
+                    image 'zealous_noether'
                 }
             }
             steps {
