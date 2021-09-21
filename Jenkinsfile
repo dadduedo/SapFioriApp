@@ -1,5 +1,9 @@
 pipeline {
-    agent any 
+    agent {
+                docker { 
+                    image 'redis'
+                }
+    } 
     stages {
         stage('prova') { 
             steps { 
@@ -7,11 +11,6 @@ pipeline {
             }
         }
         stage('Build') {
-            agent {
-                docker { 
-                    image 'zealous_noether'
-                }
-            }
             steps {
                 bat 'node --version'
             }
