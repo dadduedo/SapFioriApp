@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker { 
-                    image 'redis'
+                    image 'rabbitmq'
                 }
             }
             steps {
