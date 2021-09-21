@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker { 
-                    image 'docker/getting-started'
+                    image 'redis'
                 }
             }
             steps {
