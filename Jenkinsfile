@@ -1,19 +1,20 @@
 pipeline {
-    agent {
-                docker { 
-                    label 'windows'
-                    image 'mcr.microsoft.com/powershell'
-                }
-    } 
+    agent any
     stages {
         stage('prova') { 
             steps { 
                 bat 'npm -v' 
             }
         }
+        agent {
+            docker { 
+                label 'windows'
+                image 'mcr.microsoft.com/powershell'
+            }
+        } 
         stage('Build') {
             steps {
-                bat 'node --version'
+                Write-Host "hello world"
             }
         }
         stage ('Deliver') {
