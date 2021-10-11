@@ -17,7 +17,8 @@
     },
     "scripts": {
         "start": "cds run",
-        "prova": "node script1.js"
+        "prova": "node script1.js",
+        "build": "npm run clean && webpack"
     },
     "eslintConfig": {
         "extends": "eslint:recommended",
